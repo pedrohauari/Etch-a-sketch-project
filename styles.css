@@ -8,7 +8,7 @@ body {
 }
 #container { 
     display: grid;
-    grid-gap: 1em;
+    grid-gap: 1em; 
     grid-template-rows: repeat(var(--grid-rows), 1fr);
     grid-template-columns: repeat(var(--grid-cols), 1fr);
     width: 1000px;
@@ -28,6 +28,7 @@ body {
     display:inline-block;
 }
 .grid-item:hover { 
-    color: rgb(100, 0, 100);
+    color: rgb(150, 50, 60);
     background-color: rgb(0, 100, 150);
+    box-shadow: 0 0 30px #F44D9B , 0 0 10px #F44D9B inset;
 }

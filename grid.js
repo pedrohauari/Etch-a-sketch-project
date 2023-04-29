@@ -5,20 +5,19 @@ button.addEventListener('click', () => {
     return prompt("Type your Grid Size")
 })
 
-function createNewGrid(linhas, colunas) { 
-    let i = 0; 
-    let j = 0;
-    for (i = 0; i < 100; i++) { 
-        return linhas
+function newGrid(newRows, newCols) {
+    let newRows = 0; 
+    let newCols = 0;
+    container.style.setProperty('--grid-rows', newRows); 
+    container.style.setProperty('--grid-cols', newCols); 
+    for (i = 0; i < (newRows * newCols); i++) { 
+        let cells = document.createElement('div'); 
+        cells.innerText = (i + 1); 
+        container.appendChild(cells).className = "new-grid-item"
     }
-    for ( j = 0; j < 100; j++) { 
-        return colunas
-    }
-
 }
 
 function showNewGrid() { 
-    
 
 }
 
@@ -29,8 +28,6 @@ function makeRows(rows, cols) {
         let cell = document.createElement('div'); 
         cell.innerText = (c + 1);
         container.appendChild(cell).className = "grid-item";
-        
     };
 };
-
-makeRows(4,4)
+makeRows(10,10)
