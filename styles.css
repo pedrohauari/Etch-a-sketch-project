@@ -3,18 +3,22 @@ body {
     min-width: 100vw;
 }
 .root { 
-    --grid-cols: 1;
-    --grid-rows: 1;
+    --grid-cols: 0;
+    --grid-rows: 0;
 }
 #container { 
     display: grid;
     grid-gap: 1em; 
     grid-template-rows: repeat(var(--grid-rows), 1fr);
     grid-template-columns: repeat(var(--grid-cols), 1fr);
-    width: 1000px;
-    height: 1000px;
 }
 .grid-item { 
+    padding: 1em;
+    text-align: center;
+    color: rgb(0, 100, 155);
+    background-color: antiquewhite;
+}
+.new-grid-item { 
     padding: 1em;
     text-align: center;
     color: rgb(0, 100, 155);

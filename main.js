@@ -1,44 +1,31 @@
 const container = document.querySelector("#container")
-const button = document.querySelector("#prompt") 
+const button = document.querySelector("#prompt")
 
-button.addEventListener('click', () => { 
-    return prompt("Type your Grid Size")
-})
-
-function createNewGrid(linhas, colunas) { 
+function createNewGrid(linhas, colunas) {
     container.style.setProperty('--grid-rows', linhas);
     container.style.setProperty('--grid-cols', colunas);
     let i = 0;
-    let j = 0;
-    for (i = 0; i < linhas.length; i++) { 
-        let linhas = document.createElement('div'); 
-        linhas.innerText = (i + 1); 
-        container.appendChild(linhas).className = "new-grid-item"
+    for (i = 0; i < (linhas * colunas); i++) {
+        let rows = document.createElement('div');
+        rows.innerText = (i + 1);
+        container.appendChild(rows).className = "new-grid-item"
     }
-    for ( j = 0; colunas.length; j++) { 
-        let colunas = document.createElement('div'); 
-        colunas.innerText = (j + 1);
-        container.appendChild(colunas).className = "new-grid-item"
-        
-    }
-
 }
 
-function showNewGrid() { 
-    
+button.addEventListener('click', () => {
+    while (container.hasChildNodes()) {
+        container.removeChild(container.firstChild)
+    }
+    let linhas = 0
+    let colunas = 0
 
-}
+    linhas = prompt("Linhas: ")
+    colunas = prompt('Colunas: ')
 
-function makeRows(rows, cols) { 
-    container.style.setProperty('--grid-rows', rows); 
-    container.style.setProperty('grid-cols', cols); 
-    for (c = 0 ; c < (rows * cols); c++) { 
-        let cell = document.createElement('div'); 
-        cell.innerText = (c + 1);
-        container.appendChild(cell).className = "grid-item";
-        
-    };
-};
+    if (linhas > 80 || colunas > 80) {
+        alert('LINHAS OU COLUNAS NAO PODEM SER MAIOR QUE 80')
+        return
+    }
 
-makeRows(4,4)
-// createNewGrid(2,2)
+    return createNewGrid(linhas, colunas)
+})
