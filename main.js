@@ -1,18 +1,25 @@
 const container = document.querySelector("#container")
-let button = document.querySelector("#prompt") 
+const button = document.querySelector("#prompt") 
 
 button.addEventListener('click', () => { 
     return prompt("Type your Grid Size")
 })
 
 function createNewGrid(linhas, colunas) { 
-    let i = 0; 
+    container.style.setProperty('--grid-rows', linhas);
+    container.style.setProperty('--grid-cols', colunas);
+    let i = 0;
     let j = 0;
-    for (i = 0; i < 100; i++) { 
-        return linhas
+    for (i = 0; i < linhas.length; i++) { 
+        let linhas = document.createElement('div'); 
+        linhas.innerText = (i + 1); 
+        container.appendChild(linhas).className = "new-grid-item"
     }
-    for ( j = 0; j < 100; j++) { 
-        return colunas
+    for ( j = 0; colunas.length; j++) { 
+        let colunas = document.createElement('div'); 
+        colunas.innerText = (j + 1);
+        container.appendChild(colunas).className = "new-grid-item"
+        
     }
 
 }
@@ -34,3 +41,4 @@ function makeRows(rows, cols) {
 };
 
 makeRows(4,4)
+// createNewGrid(2,2)
